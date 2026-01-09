@@ -30,6 +30,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         bool item = playerturns[0];
         playerturns.RemoveAt(0);
         playerturns.Insert(3, item);
+        item = false;
     }
 
     // Update is called once per frame
