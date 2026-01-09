@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using System;
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Turnsystem: MonoBehaviour
 {
     bool player1 = false;
     bool player2 = false;
