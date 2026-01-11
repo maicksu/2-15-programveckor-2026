@@ -1,28 +1,28 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using TMPro;
 
-
-public class Dicerandom : MonoBehaviour
+public class DiceRoller : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TMP_Text diceText;
+
     void Start()
     {
-        
+        diceText.text = "You Rolled: -";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))  // om det är din tur
+        if (Input.GetKey(KeyCode.Space))
         {
-            rolldice();
+            Debug.Log("click");
+            RollDice();
         }
+    }
 
-        void rolldice() 
-        {
-            int RandomDices = Random.Range(1, 7);
-            Console.WriteLine(RandomDices);
-        }
+    public void RollDice()
+    {
+        int rolled = Random.Range(1, 7);
+        diceText.text = "You Rolled: " + rolled;
+        Debug.Log("Dice rolled: " + rolled);
     }
 }
