@@ -7,6 +7,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private int[] playerselect;
 
+    private void Start()
+    {
+        who();
+    }
+
     private void who()
     {
         playerselect = new int[players];
@@ -16,17 +21,24 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    public void picked()
+    public void picked(int character)
     {
+        if(playerselect == null || playerselect.Length == 0)
+        {
+            who();
+        }
+
         if(current <= players)
         {
+            int playerIndex = current - 1;
 
+            playerselect[playerIndex] = character;
+            Debug.Log("Player " + current + " picked character " + character);
+            current++;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else
+        {
+            Debug.Log("all have picked");
+        }
     }
 }
