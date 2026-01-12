@@ -22,10 +22,11 @@ public class Dicerandom : MonoBehaviour
         }
 
     }
-    public void rolldice()
+    public int rolldice()
     {
         int Diceamount = Random.Range(1, 7);
         DiceRoll.text = "You got " + Diceamount.ToString();
         Debug.Log(Diceamount);
+        return Diceamount;
     }
 }
