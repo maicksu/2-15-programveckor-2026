@@ -4,12 +4,12 @@ using UnityEngine.Rendering;
 using System;
 public class Turnsystem: MonoBehaviour
 {
-    bool player1 = false;
-    bool player2 = false;
-    bool player3 = false;
-    bool player4 = false;
+    int player1 = 1;
+    int player2 = 2;
+    int player3 = 3;
+    int player4 = 4;
 
-    public List<bool> playerturns = new List<bool>(); 
+    public List<int> playerturns = new List<int>(); 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,15 +24,6 @@ public class Turnsystem: MonoBehaviour
 
     public void nextturn()
     {
-        playerturns[0] = true;
-        bool item = playerturns[0];
-        playerturns.RemoveAt(0);
-        playerturns.Insert(3, item);
-        item = false;
-    }
-
-    public void endturn()
-    {
-        playerturns[3] = false;
+         
     }
 }
