@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Randompunishment : MonoBehaviour
 {
-
-
+    private playeritem playeritem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private List<Items> punishment = new List<Items>();
 
@@ -35,7 +34,7 @@ public class Randompunishment : MonoBehaviour
    
     public void drawpunishment()
     {
-      
+        playeritem.playeritems.Add(punishment[0]);
     }
 
 }

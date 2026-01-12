@@ -6,6 +6,7 @@ using UnityEngine;
 public class Randomreward : MonoBehaviour
 {
     private List<Items> reward = new List<Items>();
+    private playeritem playeritem;
 
     public Randomreward()
     {
@@ -27,7 +28,10 @@ public class Randomreward : MonoBehaviour
         list[i] = list[j];
         list[j] = temp;
     }
-
+    public void Drawreward()
+    {
+        playeritem.playeritems.Add(reward[0]);
+    }
 }
 
 
