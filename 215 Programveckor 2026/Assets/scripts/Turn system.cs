@@ -11,8 +11,10 @@ public class Turnsystem: MonoBehaviour
 
     public List<int> playerturns = new List<int>();
 
+    private BoardSpace boardSpace;
     private charecterSelect charecterselect;
     private Dicerandom dicerandom;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,29 +31,14 @@ public class Turnsystem: MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))  
             {
-                dicerandom.rolldice();
+                int movement = dicerandom.rolldice();
+                
+                //if(playerposition är på vissa ytor kan den bara gå höger vänster medans om den är på andra kan den gå up och ner sen om den är i ett hörn kan den gå dom hållen)
+
+
+                boardSpace.OnLand();
             }
         }
-        if (charecterselect.current == 2)
-        {
-            if (Input.GetKey(KeyCode.Space)) 
-            {
-                dicerandom.rolldice();
-            }
-        }
-        if (charecterselect.current == 3)
-        {
-            if (Input.GetKey(KeyCode.Space)) 
-            {
-                dicerandom.rolldice(); ;
-            }
-        }
-        if (charecterselect.current == 4)
-        {
-            if (Input.GetKey(KeyCode.Space))  
-            {
-                dicerandom.rolldice();
-            }
-        }
+        
     }
 }
