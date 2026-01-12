@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class charecterSelect : MonoBehaviour
 {
     public int players = 4;
     public int current = 1;
