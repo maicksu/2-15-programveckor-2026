@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class charecterSelect : MonoBehaviour
@@ -28,6 +29,7 @@ public class charecterSelect : MonoBehaviour
             who();
         }
 
+        
         if(current <= players)
         {
             int playerIndex = current - 1;
@@ -36,9 +38,11 @@ public class charecterSelect : MonoBehaviour
             Debug.Log("Player " + current + " picked character " + character);
             current++;
         }
-        else
+        else if(current == 4)
         {
             Debug.Log("all have picked");
+            current = 1;
         }
+        
     }
 }
