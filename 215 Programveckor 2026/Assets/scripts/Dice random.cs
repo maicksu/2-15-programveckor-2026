@@ -1,10 +1,12 @@
-/*using System;
+using System;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
 public class Dicerandom : MonoBehaviour
 {
+    public TextMeshProUGUI DiceRoll;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,11 +21,11 @@ public class Dicerandom : MonoBehaviour
             rolldice();
         }
 
-        void rolldice() 
-        {
-            int RandomDices = Random.Range(1, 7);
-            Console.WriteLine(RandomDices);
-        }
+    }
+    void rolldice()
+    {
+        int RandomDices = Random.Range(1, 7);
+        DiceRoll.text = "You got " + RandomDices.ToString();
+        Debug.Log(RandomDices);
     }
 }
-*/
