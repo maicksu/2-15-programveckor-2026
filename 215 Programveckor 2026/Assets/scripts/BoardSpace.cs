@@ -25,8 +25,7 @@ public class BoardSpace : MonoBehaviour
         }
         else if (type == SpaceType.Punishment)
         {
-            player.coins -= value;
-            Debug.Log("Punishment: -" + value + " coins");
+            
         }
         else if (type == SpaceType.Challenge)
         {

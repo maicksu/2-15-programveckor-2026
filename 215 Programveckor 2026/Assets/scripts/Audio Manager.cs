@@ -10,6 +10,14 @@ public class Audiomanager : MonoBehaviour
     [Header("sounds")]
     public AudioClip Lobbymusic;
     public AudioClip Gamemusic;
+    public AudioClip Losing;
+    public AudioClip Pirate;
+    public AudioClip Cat;
+    public AudioClip Alíen;
+    public AudioClip Winning;
+    public AudioClip Reward;
+  
+    
 
     Audiomanager audioManager;
     public bool isInCurrentScene;

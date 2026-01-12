@@ -1,9 +1,12 @@
 using Assets.scripts;
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Randompunishment : MonoBehaviour
 {
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private List<Items> punishment = new List<Items>();
 
@@ -13,6 +16,8 @@ public class Randompunishment : MonoBehaviour
         punishment.Add(new Items("GasTank", -1));
         punishment.Add(new Items("Scraps", -3));
         Shuffle(punishment);
+        
+
     }
     public void Shuffle(List<Items> list)
     {
@@ -27,4 +32,10 @@ public class Randompunishment : MonoBehaviour
         list[i] = list[j];
         list[j] = temp;
     }
+   
+    public void drawpunishment()
+    {
+      
+    }
+
 }

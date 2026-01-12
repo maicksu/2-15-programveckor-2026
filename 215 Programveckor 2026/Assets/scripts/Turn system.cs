@@ -9,9 +9,7 @@ public class Turnsystem: MonoBehaviour
     bool player3 = false;
     bool player4 = false;
 
-    bool gameon = true; 
-
-    List<bool> playerturns = new List<bool>(); 
+    public List<bool> playerturns = new List<bool>(); 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,9 +31,8 @@ public class Turnsystem: MonoBehaviour
         item = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void endturn()
     {
-       
+        playerturns[3] = false;
     }
 }
