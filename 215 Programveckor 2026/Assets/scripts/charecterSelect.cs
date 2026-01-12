@@ -1,3 +1,4 @@
+using Assets.scripts;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class charecterSelect : MonoBehaviour
 
     private int[] playerselect;
 
+    private Winconditions winconditions;
     private void Start()
     {
         who();
@@ -29,8 +31,7 @@ public class charecterSelect : MonoBehaviour
             who();
         }
 
-        
-        if(current <= players)
+        if (current <= players)
         {
             int playerIndex = current - 1;
 
@@ -38,11 +39,19 @@ public class charecterSelect : MonoBehaviour
             Debug.Log("Player " + current + " picked character " + character);
             current++;
         }
-        else if(current == 4)
+        else
         {
             Debug.Log("all have picked");
-            current = 1;
         }
+
+        if(current == 4);
+        {
+           current = 1;
+           //måste skaffa turn is done
+           current++;
+        }
+        
+            
         
     }
 }
