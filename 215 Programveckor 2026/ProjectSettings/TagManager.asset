@@ -8,8 +8,8 @@ TagManager:
   - punishment
   - reward
   - buff
-  - challange
   - start
+  - coins
   layers:
   - Default
   - TransparentFX

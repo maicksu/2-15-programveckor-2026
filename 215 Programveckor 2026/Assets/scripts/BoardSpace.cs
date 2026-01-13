@@ -5,15 +5,17 @@ public enum SpaceType
 {
     Reward,
     Punishment,
-    Challenge,
+    Coins,
     Buff
 }
 public class Player : MonoBehaviour
 {
+    public int coins = 0;
 }
 
 public class BoardSpace : MonoBehaviour
 {
+    private Player player;
     public SpaceType type;
     private Randomreward randomreward;
     private Randompunishment randompunishment;
@@ -28,9 +30,9 @@ public class BoardSpace : MonoBehaviour
         {
             randompunishment.drawpunishment();
         }
-        else if (type == SpaceType.Challenge)
+        else if (type == SpaceType.Coins)
         {
-            Debug.Log("Challenge space (minigame later)");
+            player.coins += 1;
         }
         else if (type == SpaceType.Buff)
         {
