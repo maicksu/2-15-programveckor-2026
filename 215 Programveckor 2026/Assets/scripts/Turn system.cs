@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using System;
-public class Turnsystem: MonoBehaviour
+public class Turnsystem : MonoBehaviour
 {
     int player1 = 1;
     int player2 = 2;
@@ -14,7 +14,8 @@ public class Turnsystem: MonoBehaviour
     private BoardSpace boardSpace;
     private charecterSelect charecterselect;
     private Dicerandom dicerandom;
-    
+    private Player player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,23 +23,50 @@ public class Turnsystem: MonoBehaviour
         playerturns.Add(player2);
         playerturns.Add(player3);
         playerturns.Add(player4);
-        
+
     }
 
-    public void nextturn()
+    public void Turn()
     {
-        if (charecterselect.current == 1)
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetKey(KeyCode.Space))  
+            
+            int movement = dicerandom.rolldice();
+
+            // Corner positions
+            bool isCorner =
+                (playerposition.x == 0 && playerposition.y == 0) ||
+                (playerposition.x == 0 && playerposition.y == 15) ||
+                (playerposition.x == 15 && playerposition.y == 0) ||
+                (playerposition.x == 15 && playerposition.y == 15);
+
+            // Edge positions (not corners)
+            bool isHorizontalEdge =
+                playerposition.y == 0 || playerposition.y == 15;
+
+            bool isVerticalEdge =
+                playerposition.x == 0 || playerposition.x == 15;
+
+            if (isCorner)
             {
-                int movement = dicerandom.rolldice();
-                
-                //if(playerposition är på vissa ytor kan den bara gå höger vänster medans om den är på andra kan den gå up och ner sen om den är i ett hörn kan den gå dom hållen)
-
-
-                boardSpace.OnLand();
+                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
             }
+            else if (isHorizontalEdge)
+            {
+                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+            }
+            else if (isVerticalEdge)
+            {
+                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+            }
+
+            boardSpace.OnLand();
+            charecterselect.current++;
         }
-        
     }
 }
