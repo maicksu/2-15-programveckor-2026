@@ -19,6 +19,7 @@ public class BoardSpace : MonoBehaviour
     public int value = 3; // used for coins or movement, etc.
     private Randomreward randomreward;
     private Randompunishment randompunishment;
+    private Buffs buffs;
     public void OnLand()
     {
         if (type == SpaceType.Reward)
@@ -35,7 +36,7 @@ public class BoardSpace : MonoBehaviour
         }
         else if (type == SpaceType.Buff)
         {
-            Debug.Log("Buff space (effect later)");
+            buffs.Drawbuff();
         }
     }
 }
