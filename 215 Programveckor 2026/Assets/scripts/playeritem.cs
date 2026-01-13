@@ -7,7 +7,11 @@ public class playeritem : MonoBehaviour
     private Items items;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public List<Items> playeritems = new List<Items>();
+    public List<Items> player1items = new List<Items>();
+    public List<Items> player2items = new List<Items>();
+    public List<Items> player3items = new List<Items>();
+    public List<Items> player4items = new List<Items>();
+
 
     int totalWings = 0;
     int totalGasTank = 0;
@@ -17,44 +21,155 @@ public class playeritem : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i <= playeritems.Count; i++)
+        for (int i = 0; i <= player1items.Count; i++)
         {
             if (items.name == "Wings")
             {
-                totalWings += playeritems[i].amount;
+                totalWings += player1items[i].amount;
             }
         }
-        for (int i = 0; i <= playeritems.Count; i++)
+        for (int i = 0; i <= player1items.Count; i++)
         {
             if (items.name == "GasTank")
             {
-                totalGasTank += playeritems[i].amount;
+                totalGasTank += player1items[i].amount;
             }
         }
-        for (int i = 0; i <= playeritems.Count; i++)
+        for (int i = 0; i <= player1items.Count; i++)
         {
             if (items.name == "Scraps")
             {
-                totalScraps += playeritems[i].amount;
+                totalScraps += player1items[i].amount;
             }
         }
-        for (int i = 0; i <= playeritems.Count; i++)
+        for (int i = 0; i <= player1items.Count; i++)
         {
             if (items.name == "ControlPanel")
             {
-                totalControlPanel += playeritems[i].amount;
+                totalControlPanel += player1items[i].amount;
             }
         }
-        for (int i = 0; i <= playeritems.Count; i++)
+        for (int i = 0; i <= player1items.Count; i++)
         {
             if (items.name == "Thruster")
             {
-                totalThruster += playeritems[i].amount;
+                totalThruster += player1items[i].amount;
             }
         }
 
         //TMPname.text = 
 
+        for (int i = 0; i <= player2items.Count; i++)
+        {
+            if (items.name == "Wings")
+            {
+                totalWings += player2items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player2items.Count; i++)
+        {
+            if (items.name == "GasTank")
+            {
+                totalGasTank += player2items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player2items.Count; i++)
+        {
+            if (items.name == "Scraps")
+            {
+                totalScraps += player2items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player2items.Count; i++)
+        {
+            if (items.name == "ControlPanel")
+            {
+                totalControlPanel += player2items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player2items.Count; i++)
+        {
+            if (items.name == "Thruster")
+            {
+                totalThruster += player2items[i].amount;
+            }
+        }
+
+        //TMPname.text = 
+        for (int i = 0; i <= player3items.Count; i++)
+        {
+            if (items.name == "Wings")
+            {
+                totalWings += player3items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player3items.Count; i++)
+        {
+            if (items.name == "GasTank")
+            {
+                totalGasTank += player3items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player3items.Count; i++)
+        {
+            if (items.name == "Scraps")
+            {
+                totalScraps += player3items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player3items.Count; i++)
+        {
+            if (items.name == "ControlPanel")
+            {
+                totalControlPanel += player3items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player3items.Count; i++)
+        {
+            if (items.name == "Thruster")
+            {
+                totalThruster += player3items[i].amount;
+            }
+        }
+
+        //TMPname.text = 
+        for (int i = 0; i <= player4items.Count; i++)
+        {
+            if (items.name == "Wings")
+            {
+                totalWings += player4items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player4items.Count; i++)
+        {
+            if (items.name == "GasTank")
+            {
+                totalGasTank += player4items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player4items.Count; i++)
+        {
+            if (items.name == "Scraps")
+            {
+                totalScraps += player4items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player4items.Count; i++)
+        {
+            if (items.name == "ControlPanel")
+            {
+                totalControlPanel += player4items[i].amount;
+            }
+        }
+        for (int i = 0; i <= player4items.Count; i++)
+        {
+            if (items.name == "Thruster")
+            {
+                totalThruster += player4items[i].amount;
+            }
+        }
+
+        //TMPname.text = 
     }
 
 
