@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Audio
+  - punishment
+  - reward
+  - buff
+  - challange
+  - start
   layers:
   - Default
   - TransparentFX
