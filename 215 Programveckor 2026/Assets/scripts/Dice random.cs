@@ -16,11 +16,11 @@ public class Dicerandom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   /*     if (Input.GetKey(KeyCode.Space))  // om det är din tur
+        if (Input.GetKey(KeyCode.Space))  // om det är din tur
         {
             rolldice();
         }
-   */
+   
     }
     public int rolldice()
     {
