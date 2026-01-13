@@ -31,16 +31,18 @@ public class Turnsystem : MonoBehaviour
     }
     public void PositionsOnPlayers()
     {
-
+        
     }
     public void Turn()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            
+
             int movement = dicerandom.rolldice();
 
-            // Corner positions
+
+
+            /* // Corner positions
             bool isCorner =
                 (playerposition.x == 0 && playerposition.y == 0) ||
                 (playerposition.x == 0 && playerposition.y == 15) ||
@@ -73,7 +75,7 @@ public class Turnsystem : MonoBehaviour
             }
 
             boardSpace.OnLand();
-            charecterselect.current++;
+             */
         }
     }
 }
