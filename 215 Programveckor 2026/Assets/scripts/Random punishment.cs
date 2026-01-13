@@ -9,7 +9,7 @@ public class Randompunishment : MonoBehaviour
     private playeritem playeritem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private List<Items> punishment = new List<Items>();
-
+    private charecterSelect charecterselect;
     public Randompunishment()
     {
         punishment.Add(new Items("Wings", -1));
@@ -38,7 +38,22 @@ public class Randompunishment : MonoBehaviour
    
     public void drawpunishment()
     {
-        playeritem.playeritems.Add(punishment[0]);
+        if (charecterselect.current == 1)
+        {
+            playeritem.player1items.Add(punishment[0]);
+        }
+        else if (charecterselect.current == 2)
+        {
+            playeritem.player2items.Add(punishment[0]);
+        }
+        else if (charecterselect.current == 3)
+        {
+            playeritem.player3items.Add(punishment[0]);
+        }
+        else if (charecterselect.current == 4)
+        {
+            playeritem.player4items.Add(punishment[0]);
+        }
     }
 
 }
