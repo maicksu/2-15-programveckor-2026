@@ -10,9 +10,12 @@ public class Randomreward : MonoBehaviour
 
     public Randomreward()
     {
-        reward.Add(new Items("Wings", 2));
+        reward.Add(new Items("Wings", 1));
         reward.Add(new Items("GasTank", 1));
-        reward.Add(new Items("Scraps", 3));
+        reward.Add(new Items("Scraps", 1));
+        reward.Add(new Items("ControlPanel", 1));
+        reward.Add(new Items("Thruster", 1));
+
         Shuffle(reward);
     }
     public void Shuffle(List<Items> list)

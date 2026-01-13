@@ -2,6 +2,7 @@ using Assets.scripts;
 using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class Randompunishment : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class Randompunishment : MonoBehaviour
 
     public Randompunishment()
     {
-        punishment.Add(new Items("Wings", -2));
+        punishment.Add(new Items("Wings", -1));
         punishment.Add(new Items("GasTank", -1));
-        punishment.Add(new Items("Scraps", -3));
+        punishment.Add(new Items("Scraps", -1));
+        punishment.Add(new Items("ControlPanel", -1));
+        punishment.Add(new Items("Thruster", -1));
+
         Shuffle(punishment);
         
 

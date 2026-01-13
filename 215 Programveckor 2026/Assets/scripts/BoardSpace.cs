@@ -1,4 +1,6 @@
 using UnityEngine;
+
+
 public enum SpaceType
 {
     Reward,
@@ -15,17 +17,18 @@ public class BoardSpace : MonoBehaviour
 {
     public SpaceType type;
     public int value = 3; // used for coins or movement, etc.
-
-    public void OnLand(Player player)
+    private Randomreward randomreward;
+    private Randompunishment randompunishment;
+    private Buffs buffs;
+    public void OnLand()
     {
         if (type == SpaceType.Reward)
         {
-            player.coins += value;
-            Debug.Log("Reward: +" + value + " coins");
+            randomreward.Drawreward();
         }
         else if (type == SpaceType.Punishment)
         {
-            
+            randompunishment.drawpunishment();
         }
         else if (type == SpaceType.Challenge)
         {
@@ -33,7 +36,7 @@ public class BoardSpace : MonoBehaviour
         }
         else if (type == SpaceType.Buff)
         {
-            Debug.Log("Buff space (effect later)");
+            buffs.Drawbuff();
         }
     }
 }
