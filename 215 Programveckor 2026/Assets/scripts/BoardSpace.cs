@@ -10,13 +10,11 @@ public enum SpaceType
 }
 public class Player : MonoBehaviour
 {
-    public int coins = 0;
 }
 
 public class BoardSpace : MonoBehaviour
 {
     public SpaceType type;
-    public int value = 3; // used for coins or movement, etc.
     private Randomreward randomreward;
     private Randompunishment randompunishment;
     private Buffs buffs;
