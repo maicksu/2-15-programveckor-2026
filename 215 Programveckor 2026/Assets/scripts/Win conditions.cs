@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Winconditions : MonoBehaviour
 {
-    public bool GameisPlaying = true;
-    int maxparts = 5;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,9 +13,6 @@ public class Winconditions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (GameisPlaying == true)
-        {
-
-        }
+        
     }
 }

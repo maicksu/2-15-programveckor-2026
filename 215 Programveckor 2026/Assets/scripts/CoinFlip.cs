@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class CoinFlip : MonoBehaviour
 {
@@ -29,3 +29,4 @@ public class CoinFlip : MonoBehaviour
         Debug.Log("Coins: " + player.coins + " | Parts: " + player.parts);
     }
 }
+*/
