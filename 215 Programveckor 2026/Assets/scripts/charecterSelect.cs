@@ -1,6 +1,6 @@
-using Assets.scripts;
-using UnityEditor.Experimental.GraphView;
+ï»¿using Assets.scripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class charecterSelect : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class charecterSelect : MonoBehaviour
     private int[] playerselect;
 
     private Winconditions winconditions;
+
     private void Start()
     {
         who();
@@ -26,32 +27,35 @@ public class charecterSelect : MonoBehaviour
 
     public void picked(int character)
     {
-        if(playerselect == null || playerselect.Length == 0)
+        if (playerselect == null || playerselect.Length == 0)
         {
             who();
+        }
+
+        // prevent picking the same character twice
+        for (int i = 0; i < playerselect.Length; i++)
+        {
+            if (playerselect[i] == character)
+            {
+                Debug.Log("Character already picked");
+                return;
+            }
         }
 
         if (current <= players)
         {
             int playerIndex = current - 1;
-
             playerselect[playerIndex] = character;
+
             Debug.Log("Player " + current + " picked character " + character);
             current++;
         }
-        else
+
+        if (current == players + 1)
         {
             Debug.Log("all have picked");
+            current = 1;
+            SceneManager.LoadScene("Game");
         }
-
-        if(current == 4);
-        {
-           current = 1;
-           //måste skaffa turn is done
-           current++;
-        }
-        
-            
-        
     }
 }
