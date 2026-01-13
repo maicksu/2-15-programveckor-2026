@@ -7,7 +7,7 @@ public class Randomreward : MonoBehaviour
 {
     private List<Items> reward = new List<Items>();
     private playeritem playeritem;
-
+    private charecterSelect charecterselect;
     public Randomreward()
     {
         reward.Add(new Items("Wings", 1));
@@ -33,7 +33,22 @@ public class Randomreward : MonoBehaviour
     }
     public void Drawreward()
     {
-        playeritem.playeritems.Add(reward[0]);
+        if (charecterselect.current == 1)
+        {
+            playeritem.player1items.Add(reward[0]);
+        }
+        else if (charecterselect.current == 2)
+        {
+            playeritem.player2items.Add(reward[0]);
+        }
+        else if (charecterselect.current == 3)
+        {
+            playeritem.player3items.Add(reward[0]);
+        }
+        else if (charecterselect.current == 4)
+        {
+            playeritem.player4items.Add(reward[0]);
+        }
     }
 }
 
