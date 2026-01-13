@@ -9,6 +9,10 @@ public class Turnsystem : MonoBehaviour
     int player3 = 3;
     int player4 = 4;
 
+    Vector2Int playerposition = new Vector2Int(0, 0);
+
+
+
     public List<int> playerturns = new List<int>();
 
     private BoardSpace boardSpace;
@@ -23,12 +27,15 @@ public class Turnsystem : MonoBehaviour
         playerturns.Add(player2);
         playerturns.Add(player3);
         playerturns.Add(player4);
+        
+    }
+    public void PositionsOnPlayers()
+    {
 
     }
-
     public void Turn()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             
             int movement = dicerandom.rolldice();
