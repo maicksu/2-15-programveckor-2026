@@ -16,13 +16,13 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - up/down
+  - left/ right
+  - corner left/ up
+  - corner left/ down
+  - corner right/ up
+  - 'corner right/ down '
+  - 'all directions '
   - 
   - 
   - 
