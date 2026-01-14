@@ -112,59 +112,74 @@ public class Turnsystem : MonoBehaviour
 
             if(CornerNW == playerposition)
             {
-                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-
+                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.S))
+                {
+                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                }
             }
             if (CornerNE == playerposition)
             {
-                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
-                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-
+                while (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.S))
+                {
+                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                }
             }
             if (CornerSE == playerposition)
             {
-                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
-                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
-
+                while (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.W))
+                {
+                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                }
             }
             if (CornerSW == playerposition)
             {
-                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
-
+                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.W))
+                {
+                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                }
             }
 
             if(NorthEdge == playerposition)
             {
-                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.A))
+                {
+                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                }
 
             }
             if (EastEdge == playerposition)
             {
-                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
-
+                while (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W))
+                {
+                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                }
             }
             if (SouthEdge == playerposition)
             {
-                if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
-
+                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.A))
+                {
+                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                }
             }
             if (WestEdge == playerposition)
             {
-                if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-                if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
-
+                while (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W))
+                {
+                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                }
             }
             
             currentPosition += movement;
             playerposition = TilePosition[currentPosition];
             
-
-
             boardSpace.OnLand();
             
         }
