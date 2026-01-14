@@ -10,7 +10,7 @@ public class charecterSelect : MonoBehaviour
     private int[] playerselect;
 
     private Winconditions winconditions;
-
+    private Turnsystem turnsystem;
     private void Start()
     {
         who();
@@ -56,6 +56,8 @@ public class charecterSelect : MonoBehaviour
             Debug.Log("all have picked");
             current = 1;
             SceneManager.LoadScene("Game");
+            turnsystem.playerposition = turnsystem.TilePosition[0];
+
         }
     }
 }
