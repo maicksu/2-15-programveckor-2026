@@ -11,9 +11,8 @@ public class Turnsystem : MonoBehaviour
     int player4 = 4;
 
     Vector2Int playerposition = new Vector2Int(0, 0);
-
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
-
+    private int currentPosition = 0;
 
 
     public List<int> playerturns = new List<int>();
@@ -93,7 +92,7 @@ public class Turnsystem : MonoBehaviour
 
         playerposition = TilePosition[0];
     }
-
+   
     public void Turn()
     {
         if (Input.GetKeyUp(KeyCode.Space))
@@ -160,8 +159,12 @@ public class Turnsystem : MonoBehaviour
                 if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
 
             }
-
             
+            currentPosition += movement;
+            playerposition = TilePosition[currentPosition];
+            
+
+
             boardSpace.OnLand();
             
         }
