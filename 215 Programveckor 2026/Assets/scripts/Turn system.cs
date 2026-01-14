@@ -5,17 +5,12 @@ using System;
 using UnityEngine.U2D;
 public class Turnsystem : MonoBehaviour
 {
-    int player1 = 1;
-    int player2 = 2;
-    int player3 = 3;
-    int player4 = 4;
+
 
     public Vector2Int playerposition = new Vector2Int(0, 0);
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
     private int currentPosition = 0;
 
-
-    public List<int> playerturns = new List<int>();
 
     private BoardSpace boardSpace;
     private charecterSelect charecterselect;
@@ -25,10 +20,6 @@ public class Turnsystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerturns.Add(player1);
-        playerturns.Add(player2);
-        playerturns.Add(player3);
-        playerturns.Add(player4);
 
         TilePosition.Add(new Vector2Int(0, 0)); //[0] också vidare
         TilePosition.Add(new Vector2Int(1, 0)); //[1]
