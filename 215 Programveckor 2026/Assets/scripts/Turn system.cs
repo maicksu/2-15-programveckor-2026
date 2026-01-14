@@ -112,68 +112,68 @@ public class Turnsystem : MonoBehaviour
 
             if(CornerNW == playerposition)
             {
-                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.S))
+                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.S))
                 {
-                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
                 }
             }
             if (CornerNE == playerposition)
             {
-                while (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.S))
+                while (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.S))
                 {
-                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
-                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
                 }
             }
             if (CornerSE == playerposition)
             {
-                while (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.W))
+                while (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
-                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
                 }
             }
             if (CornerSW == playerposition)
             {
-                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.W))
+                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
                 }
             }
 
             if(NorthEdge == playerposition)
             {
-                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.A))
+                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
                 {
-                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
                 }
 
             }
             if (EastEdge == playerposition)
             {
-                while (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W))
+                while (!Input.GetKeyDown(KeyCode.S) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
                 }
             }
             if (SouthEdge == playerposition)
             {
-                while (!Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.A))
+                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
                 {
-                    if (Input.GetKey(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKey(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
+                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
                 }
             }
             if (WestEdge == playerposition)
             {
-                while (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W))
+                while (!Input.GetKeyDown(KeyCode.S) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKey(KeyCode.S)) playerposition.y -= movement;
-                    if (Input.GetKey(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
                 }
             }
             
