@@ -55,9 +55,6 @@ public class charecterSelect : MonoBehaviour
         {
             Debug.Log("all have picked");
             SceneManager.LoadScene("Game");
-
-            turnsystem.playerposition = turnsystem.TilePosition[0];
-
         }
     }
 }
