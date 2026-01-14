@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class StartTurn : MonoBehaviour
@@ -7,73 +6,55 @@ public class StartTurn : MonoBehaviour
     private charecterSelect charecterselect;
     private Turnsystem turnsystem;
     private Audiomanager audioManager;
-    private BoardSpace boardSpace;
-    private int playerturn;
-    private charecterSelect CharecterSelect;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    public List<int> Players = new List<int>();
-
-
+    private int playerTurnIndex = 0;
+    private List<int> Players = new List<int>();
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
+        charecterselect = GameObject.FindObjectOfType<charecterSelect>();
+        turnsystem = GameObject.FindObjectOfType<Turnsystem>();
     }
-    void Start()
+
+    private void Start()
     {
+        // Add players 1..4
         Players.Add(1);
         Players.Add(2);
         Players.Add(3);
         Players.Add(4);
 
-
-        if (Players[playerturn] == 1)
-        {
-            while (!Input.GetKeyUp(KeyCode.Space))
-            {
-                turnsystem.Turn();
-                audioManager.PlaySFX(audioManager.Alien);
-            }
-
-        }
-        if (Players[playerturn] == 2)
-        {
-            while (!Input.GetKeyUp(KeyCode.Space))
-            {
-                turnsystem.Turn();
-                audioManager.PlaySFX(audioManager.Astronout);
-            }
-        }
-        if (Players[playerturn] == 3)
-        {
-            while (!Input.GetKeyUp(KeyCode.Space))
-            {
-                turnsystem.Turn();
-                audioManager.PlaySFX(audioManager.Cat);
-            }
-        }
-        if (Players[playerturn] == 4)
-        {
-            while (!Input.GetKeyUp(KeyCode.Space))
-            {
-                turnsystem.Turn();
-                audioManager.PlaySFX(audioManager.Pirate);
-            }
-        }
+        Debug.Log("Turn system initialized.");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (boardSpace.turnover == true) 
+        // Press Space to start this player's turn
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Players[playerturn] += 1;
-            if (Players[playerturn] == 5)
+            int currentPlayer = Players[playerTurnIndex];
+            int character = charecterselect.GetCharacterForPlayer(currentPlayer);
+
+            // Play character-specific audio
+            switch (character)
             {
-                Players[playerturn] = 1;
+                case 1: audioManager.PlaySFX(audioManager.Alien); break;
+                case 2: audioManager.PlaySFX(audioManager.Astronout); break;
+                case 3: audioManager.PlaySFX(audioManager.Cat); break;
+                case 4: audioManager.PlaySFX(audioManager.Pirate); break;
+                default: Debug.Log("No character selected for player " + currentPlayer); break;
             }
+
+            // Turnsystem now automatically handles movement in its Update
+            // No need to call turnsystem.Turn() anymore
+
+            // Move to next player's turn
+            playerTurnIndex++;
+            if (playerTurnIndex >= Players.Count)
+                playerTurnIndex = 0; // loop back to first player
+
+            Debug.Log("Next player: " + Players[playerTurnIndex]);
         }
     }
 }
