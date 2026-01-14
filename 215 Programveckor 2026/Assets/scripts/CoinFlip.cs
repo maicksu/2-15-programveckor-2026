@@ -1,32 +1,34 @@
-/*using UnityEngine;
+using TMPro;
+using UnityEngine;
 
 public class CoinFlip : MonoBehaviour
 {
-    public Player player;
+    public TextMeshProUGUI resultText;
 
-    public void FlipCoin()
+    public void ChooseHeads()
     {
-        if (player.coins < 10)
+        Flip(true);
+    }
+
+    public void ChooseTails()
+    {
+        Flip(false);
+    }
+
+    void Flip(bool guessedHeads)
+    {
+        bool coinIsHeads = Random.Range(0, 2) == 1;
+
+        if (coinIsHeads == guessedHeads)
         {
-            Debug.Log("Not enough coins");
-            return;
-        }
-
-        player.coins -= 10;
-
-        int result = Random.Range(0, 2); // 0 or 1
-
-        if (result == 1)
-        {
-            player.parts += 1;    //  player scriptet ska ha en del för att detta ska funka
-            Debug.Log("WIN: +1 part");
+            resultText.text = "YOU WIN!";
         }
         else
         {
-            Debug.Log("LOSE");
+            resultText.text = "YOU LOSE!";
         }
 
-        Debug.Log("Coins: " + player.coins + " | Parts: " + player.parts);
+        Debug.Log("Guess: " + (guessedHeads ? "Heads" : "Tails"));
+        Debug.Log("Result: " + (coinIsHeads ? "Heads" : "Tails"));
     }
 }
-*/
