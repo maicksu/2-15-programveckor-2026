@@ -13,13 +13,16 @@ public class Audiomanager : MonoBehaviour
     public AudioClip Losing;
     public AudioClip Pirate;
     public AudioClip Cat;
-    public AudioClip Alíen;
+    public AudioClip Alien;
+    public AudioClip Astronout;
     public AudioClip Winning;
     public AudioClip Reward;
-  
-    
+    public AudioClip Diceshaking;
+    public AudioClip DiceRolling;
+    public AudioClip Coin;
+    public AudioClip Buff;
 
-    Audiomanager audioManager;
+     Audiomanager audioManager;
     public bool isInCurrentScene;
     public string lastScene;
     private void Awake()
