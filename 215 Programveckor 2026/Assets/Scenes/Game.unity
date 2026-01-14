@@ -3339,6 +3339,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1062978868}
   - component: {fileID: 1062978867}
+  - component: {fileID: 1062978870}
+  - component: {fileID: 1062978869}
   m_Layer: 0
   m_Name: Alien1
   m_TagString: Untagged
@@ -3419,6 +3421,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1062978869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062978866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1af0543f7d98f040978afa0ff653989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Turnsystem
+  TilePosition: []
+  playerturns: 
+--- !u!114 &1062978870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062978866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdb30d091882e6488c59978b3632f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartTurn
 --- !u!1 &1063145229
 GameObject:
   m_ObjectHideFlags: 0
