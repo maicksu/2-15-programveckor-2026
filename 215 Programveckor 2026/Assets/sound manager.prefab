@@ -179,6 +179,15 @@ MonoBehaviour:
   SFXSource: {fileID: 4073313051727686462}
   Lobbymusic: {fileID: 8300000, guid: 2b22c1f7cc8075b45b65a6d291fb8a99, type: 3}
   Gamemusic: {fileID: 8300000, guid: 88cb4dce85a5a1d469b300f6186ec423, type: 3}
+  Losing: {fileID: 8300000, guid: 1df7ee3bca8ea6a43a49e2193886a460, type: 3}
+  Pirate: {fileID: 8300000, guid: c8fc623e7be33ac4aa3e991a249297f3, type: 3}
+  Cat: {fileID: 8300000, guid: 925f3e9616d65b848bc03e3dace7be04, type: 3}
+  Alien: {fileID: 8300000, guid: 835830e9569ed30408ef361a749a417e, type: 3}
+  Astronout: {fileID: 8300000, guid: 23867fed4d2b919468033682dff9eef3, type: 3}
+  Winning: {fileID: 8300000, guid: eed34548914661f43b13f134ff0e4bcc, type: 3}
+  Reward: {fileID: 8300000, guid: 7cef6d3cf3e98db4fa557d01c244a5bc, type: 3}
+  Diceshaking: {fileID: 8300000, guid: 4fceb5b8f266f6c4eb9e1b3e9cd61fc2, type: 3}
+  DiceRolling: {fileID: 8300000, guid: 35f10010c32ba724a9f37df779e37ff0, type: 3}
   isInCurrentScene: 1
   lastScene: 
 --- !u!1 &5206997777211226141
