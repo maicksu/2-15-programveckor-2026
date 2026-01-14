@@ -91,6 +91,7 @@ public class Turnsystem : MonoBehaviour
         TilePosition.Add(new Vector2Int(0, -2));
         TilePosition.Add(new Vector2Int(0, -1)); //[55] inte hörn btw det är [0] som är det
 
+        playerposition = TilePosition[0];
     }
 
     public void Turn()
@@ -160,7 +161,7 @@ public class Turnsystem : MonoBehaviour
 
             }
 
-
+            
             boardSpace.OnLand();
             
         }
