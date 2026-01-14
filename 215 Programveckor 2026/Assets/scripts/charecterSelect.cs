@@ -51,9 +51,11 @@ public class charecterSelect : MonoBehaviour
             Debug.Log("Player " + current + " picked character " + character);
             current++;
         }
-        else
+
+        if (current == players + 1)
         {
             Debug.Log("all have picked");
+            current = 1;
             SceneManager.LoadScene("Game");
         }
     }
