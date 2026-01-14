@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
 public class BoardSpace : MonoBehaviour
 {
+    private Audiomanager audioManager;
     private Player player;
     public SpaceType type;
     private Randomreward randomreward;
@@ -25,18 +26,22 @@ public class BoardSpace : MonoBehaviour
         if (type == SpaceType.Reward)
         {
             randomreward.Drawreward();
+            audioManager.PlaySFX(audioManager.Reward);
         }
         else if (type == SpaceType.Punishment)
         {
             randompunishment.drawpunishment();
+            audioManager.PlaySFX(audioManager.Losing);
         }
         else if (type == SpaceType.Coins)
         {
             player.coins += 1;
+            audioManager.PlaySFX(audioManager.Coin);
         }
         else if (type == SpaceType.Buff)
         {
             buffs.Drawbuff();
+            audioManager.PlaySFX(audioManager.Buff);
         }
     }
 }

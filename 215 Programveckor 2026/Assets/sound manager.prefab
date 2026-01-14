@@ -188,6 +188,8 @@ MonoBehaviour:
   Reward: {fileID: 8300000, guid: 7cef6d3cf3e98db4fa557d01c244a5bc, type: 3}
   Diceshaking: {fileID: 8300000, guid: 4fceb5b8f266f6c4eb9e1b3e9cd61fc2, type: 3}
   DiceRolling: {fileID: 8300000, guid: 35f10010c32ba724a9f37df779e37ff0, type: 3}
+  Coin: {fileID: 8300000, guid: 92172c39821600841ac79bb93ff6523b, type: 3}
+  Buff: {fileID: 8300000, guid: faf2b4e011e51324a97a8ef438efbea9, type: 3}
   isInCurrentScene: 1
   lastScene: 
 --- !u!1 &5206997777211226141

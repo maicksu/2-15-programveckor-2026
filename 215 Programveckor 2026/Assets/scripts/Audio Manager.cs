@@ -19,6 +19,8 @@ public class Audiomanager : MonoBehaviour
     public AudioClip Reward;
     public AudioClip Diceshaking;
     public AudioClip DiceRolling;
+    public AudioClip Coin;
+    public AudioClip Buff;
 
      Audiomanager audioManager;
     public bool isInCurrentScene;
