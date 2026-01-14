@@ -16,23 +16,36 @@ public class StartTurn : MonoBehaviour
     {
        if (charecterselect.current == 1)
         {
-            turnsystem.Turn();
-            audioManager.PlaySFX(audioManager.Alien);
+            while (!Input.GetKeyUp(KeyCode.Space))
+            {
+                turnsystem.Turn();
+                audioManager.PlaySFX(audioManager.Alien);
+            }
+
         }
         if (charecterselect.current == 2)
         {
-            turnsystem.Turn();
-            audioManager.PlaySFX(audioManager.Cat);
+            while (!Input.GetKeyUp(KeyCode.Space))
+            {
+                turnsystem.Turn();
+                audioManager.PlaySFX(audioManager.Astronout);
+            }
         }
         if (charecterselect.current == 3)
         {
-            turnsystem.Turn();
-            audioManager.PlaySFX(audioManager.Cat);
+            while (!Input.GetKeyUp(KeyCode.Space))
+            {
+                turnsystem.Turn();
+                audioManager.PlaySFX(audioManager.Cat);
+            }
         }
         if (charecterselect.current == 4)
         {
-            turnsystem.Turn();
-            audioManager.PlaySFX(audioManager.Pirate);
+            while (!Input.GetKeyUp(KeyCode.Space))
+            {
+                turnsystem.Turn();
+                audioManager.PlaySFX(audioManager.Pirate);
+            }
         }
     }
 
