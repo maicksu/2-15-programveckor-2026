@@ -26,6 +26,11 @@ public class Buffs : MonoBehaviour
         
     }
 
+    private void Rollagain()
+    {
+        turnsystem.Turn();
+    }
+
     private int Move3()
     {
         return 3;
@@ -35,10 +40,6 @@ public class Buffs : MonoBehaviour
         return 6;
     }
 
-    private void RandombuffR()
-    {
-        randomreward.Drawreward();
-    }
     private void dubblereward()
     {
         randomreward.Drawreward();
@@ -49,7 +50,7 @@ public class Buffs : MonoBehaviour
     {
         if (Randombuff[0] ==1)
         {
-            RandombuffR();
+            Rollagain();
             Randombuff.Remove(0);
         }
         if (Randombuff[0] ==2)
