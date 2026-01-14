@@ -30,33 +30,11 @@ public class Dicerandom : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))  // om det är din tur
         {
             rolldice();
-            if (playingsound == false)
-            {
-                audioManager.PlaySFX(audioManager.Diceshaking);
-                timerIsRunning = true;
-                playingsound = true;
-            }
 
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             audioManager.PlaySFX(audioManager.DiceRolling);
-        }
-
-        if (timerIsRunning) // det här är vad som uppdaterar timern så att den fungerar 
-        {
-            if (timeRemaining > 0)// här kollar jag om timern är slut om den inte är de så tar jag min timer minus deltatime så den går ner i sek
-            {
-                timeRemaining -= Time.deltaTime;
-            }
-            else // här kollar jag också om timern är slut och om den är det aktiverar jag CountdownFinished
-            {
-                timeRemaining = 0;
-                timerIsRunning = false;
-                CountdownFinished();
-                timeRemaining = 14;
-            }
-
         }
     }
     public int rolldice()
@@ -66,9 +44,5 @@ public class Dicerandom : MonoBehaviour
         Debug.Log(Diceamount);
         return Diceamount;
     }
-    private void CountdownFinished()
-    {
-        timerIsRunning = false;
-        playingsound = false;
-    }
+
 }
