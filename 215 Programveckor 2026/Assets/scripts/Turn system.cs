@@ -10,7 +10,7 @@ public class Turnsystem : MonoBehaviour
     int player3 = 3;
     int player4 = 4;
 
-    public Vector2Int playerposition = new Vector2Int(0, 0);
+    Vector2Int playerposition = new Vector2Int(0, 0);
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
     private int currentPosition = 0;
 
