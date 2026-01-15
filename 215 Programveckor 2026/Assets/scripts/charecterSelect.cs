@@ -9,9 +9,6 @@ public class charecterSelect : MonoBehaviour
 
     private int[] playerselect;
 
-    private Winconditions winconditions;
-    private Turnsystem turnsystem;
-
     private void Start()
     {
         who();
@@ -49,12 +46,34 @@ public class charecterSelect : MonoBehaviour
             playerselect[playerIndex] = character;
 
             Debug.Log("Player " + current + " picked character " + character);
+
+            if (current == 1)
+            {
+                PlayerPrefs.SetInt("player1", character);
+                PlayerPrefs.Save();
+            }
+            if (current == 2)
+            {
+                PlayerPrefs.SetInt("player2", character);
+                PlayerPrefs.Save();
+            }
+            if (current == 3)
+            {
+                PlayerPrefs.SetInt("player3", character);
+                PlayerPrefs.Save();
+            }
+            if (current == 4)
+            {
+                PlayerPrefs.SetInt("player4", character);
+                PlayerPrefs.Save();
+            }
             current++;
-        }
-        else
-        {
-            Debug.Log("all have picked");
-            SceneManager.LoadScene("Game");
+            Debug.Log(current);
+            if (current > players)
+            {
+                Debug.Log("all have picked");
+                SceneManager.LoadScene("Game");
+            }
         }
     }
 }

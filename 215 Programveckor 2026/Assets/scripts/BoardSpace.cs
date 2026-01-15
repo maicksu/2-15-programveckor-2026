@@ -8,20 +8,23 @@ public enum SpaceType
     Coins,
     Buff
 }
-public class Player : MonoBehaviour
-{
-    public int coins = 0;
-}
 
 public class BoardSpace : MonoBehaviour
 {
     private Audiomanager audioManager;
-    private Player player;
     public SpaceType type;
     private Randomreward randomreward;
     private Randompunishment randompunishment;
     private Buffs buffs;
+    public int coins = 0;
     public bool turnover = false;
+
+    private void Awake()
+    {
+        randomreward = GetComponent<Randomreward>();
+        randompunishment = GetComponent<Randompunishment>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
+    }
     public void OnLand()
     {
         if (type == SpaceType.Reward)
@@ -39,7 +42,7 @@ public class BoardSpace : MonoBehaviour
         }
         else if (type == SpaceType.Coins)
         {
-            player.coins += 1;
+            coins += 1;
             audioManager.PlaySFX(audioManager.Coin);
             turnover = true;
 

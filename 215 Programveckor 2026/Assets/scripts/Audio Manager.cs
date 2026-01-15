@@ -37,7 +37,7 @@ public class Audiomanager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (lastScene == currentScene.name) return;
 
-        if (currentScene.name == "Lobby" )
+        if (currentScene.name == "LobbyScene" )
         {
             musicSource.clip = Lobbymusic;
             musicSource.Play();

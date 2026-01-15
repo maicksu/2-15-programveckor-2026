@@ -10,7 +10,7 @@ public class Randompunishment : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private List<Items> punishment = new List<Items>();
     private charecterSelect charecterselect;
-    public Randompunishment()
+   private void Awake()
     {
         punishment.Add(new Items("Wings", -1));
         punishment.Add(new Items("GasTank", -1));
@@ -19,7 +19,7 @@ public class Randompunishment : MonoBehaviour
         punishment.Add(new Items("Thruster", -1));
 
         Shuffle(punishment);
-        
+        playeritem = GetComponent<playeritem>();
 
     }
     public void Shuffle(List<Items> list)

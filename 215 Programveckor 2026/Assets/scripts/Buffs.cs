@@ -15,9 +15,9 @@ public class Buffs : MonoBehaviour
         3,
         4,
     };
-    void Start()
+    private void Awake()
     {
-        
+        randomreward = GetComponent<Randomreward>();
     }
 
     // Update is called once per frame
