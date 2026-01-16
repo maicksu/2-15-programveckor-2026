@@ -1237,6 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardSpace
   type: 0
+  coins: 0
   turnover: 0
 --- !u!114 &432915830
 MonoBehaviour:
@@ -6650,6 +6651,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5918924062813514369, guid: e7afd902bd14a68498ec1c501a8bc2bd, type: 3}
+      propertyPath: playerposition.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2091596880506660684, guid: e7afd902bd14a68498ec1c501a8bc2bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.992
@@ -6711,6 +6716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: austonaut2
       objectReference: {fileID: 0}
+    - target: {fileID: 5539817266809795789, guid: efdfb8f0204ec4045ba785667a253e46, type: 3}
+      propertyPath: playerposition.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5593768913003249458, guid: efdfb8f0204ec4045ba785667a253e46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.99
@@ -6764,6 +6773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -94588532472242817, guid: a9e2b4841ee378a4e81ad81492beae55, type: 3}
+      propertyPath: playerposition.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 936803269808068425, guid: a9e2b4841ee378a4e81ad81492beae55, type: 3}
       propertyPath: m_Name
       value: Katt3
@@ -6821,6 +6834,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4776315258578194073, guid: 9b73e1e5a8eb76549b9fad88276d3afd, type: 3}
+      propertyPath: playerposition.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5232110492319740741, guid: 9b73e1e5a8eb76549b9fad88276d3afd, type: 3}
       propertyPath: m_Name
       value: Alien1

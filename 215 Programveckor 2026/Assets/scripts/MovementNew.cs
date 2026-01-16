@@ -10,10 +10,11 @@ public class MovementNew : MonoBehaviour
     private BoardSpace boardSpace;
     public List<int> Players = new List<int>();
     public string state = "rolling";
-    private int playerturn = 1;
-    public Vector2Int playerposition = new Vector2Int(0, 0);
+    private int playerturn = 0;
+    public List<Vector2Int> playerposition = new List<Vector2Int>();
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
     private int currentPosition = 0;
+    private int movement;
 
     private void Awake()
     {
@@ -29,12 +30,25 @@ public class MovementNew : MonoBehaviour
          int player2 = PlayerPrefs.GetInt("player2");
          int player3 = PlayerPrefs.GetInt("player3");
          int player4 = PlayerPrefs.GetInt("player4");
-
+        print("p1:" + player1);
+        print("p2:" + player2);
+        print("p3:" + player3);
+        print("p4:" + player4);
          Players.Add(player1);
          Players.Add(player2);
          Players.Add(player3);
          Players.Add(player4);
 
+
+
+        playerposition.Add(new Vector2Int(0, 0));
+        playerposition.Add(new Vector2Int(0, 0));
+        playerposition.Add(new Vector2Int(0, 0));
+        playerposition.Add(new Vector2Int(0, 0));
+
+        print("Player turn: " + playerturn);
+        print("Player pos x : " + playerposition[playerturn].x);
+        print("Player pos y : " + playerposition[playerturn].y);
 
         TilePosition.Add(new Vector2Int(0, 0)); //[0] också vidare
         TilePosition.Add(new Vector2Int(1, 0)); //[1]
@@ -97,7 +111,11 @@ public class MovementNew : MonoBehaviour
         TilePosition.Add(new Vector2Int(0, -1)); //[55] inte hörn btw det är [0] som är det
 
          transform.position = (Vector2)TilePosition[0];
-         playerposition = TilePosition[0];
+    }
+
+    private List<Vector2Int> GetPlayerposition()
+    {
+        return playerposition;
     }
 
     // Update is called once per frame
@@ -105,51 +123,60 @@ public class MovementNew : MonoBehaviour
     {
         if (state == "rolling")
         {
- 
-            if (Input.GetKey(KeyCode.Space))
-            {
-                switchplayer();
-                Debug.Log(state);
-            }
+            switchplayer();
+            Debug.Log(state);
         }
 
-        if (state == "moving")
+        if (state == "moving") 
         {
-            int movement = dicerandom.rolldice();
-            if (playerposition.y == -14 && playerposition.x != 14 && Input.GetKeyDown(KeyCode.D) || playerposition.y == 0 && playerposition.x != 14 && Input.GetKeyDown(KeyCode.D))
-            {
-                playerposition.x += movement;
-                transform.position = (Vector2)playerposition;
-                state = "rolling";
-            }
-            if (playerposition.x == 0 && playerposition.y != -14 && Input.GetKeyDown(KeyCode.S) || playerposition.x == 14 && playerposition.y != -14 && Input.GetKeyDown(KeyCode.S))
-            {
-                playerposition.y -= movement;
-                transform.position = (Vector2)playerposition;
-                state = "rolling";
-            }
-            if (playerposition.y == -14 && playerposition.x != 0 && Input.GetKeyDown(KeyCode.A) || playerposition.y == 0 && playerposition.x != 0 && Input.GetKeyDown(KeyCode.A))
-            {
-                playerposition.x -= movement;
-                transform.position = (Vector2)playerposition;
-                state = "rolling";
-            }
-            if (playerposition.x == 0 && playerposition.y != 0 && Input.GetKeyDown(KeyCode.W) || playerposition.x == 14 && playerposition.y != 0 && Input.GetKeyDown(KeyCode.W))
-            {
-                playerposition.y += movement;
-                transform.position = (Vector2)playerposition;
-                state = "rolling";
-            }
+                
+                Debug.Log("in i movemet");
+            print("Player turn: " +playerturn);
+            print("Player pos x : " + playerposition[playerturn].x);
+            print("Player pos y : " + playerposition[playerturn].y);
+
+
+
+            if ((playerposition[playerturn].y == -14 && playerposition[playerturn].x != 14 && Input.GetKeyDown(KeyCode.D)) || (playerposition[playerturn].y == 0 && playerposition[playerturn].x != 14 && Input.GetKeyDown(KeyCode.D)))
+                {
+                Debug.Log("fucking hell");
+
+                playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x + movement, playerposition[playerturn].y);
+                    transform.position = (Vector2)playerposition[playerturn];
+                    boardSpace.OnLand();
+                }
+                if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S))
+                {
+                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y - movement);
+                    transform.position = (Vector2)playerposition[playerturn];
+                    boardSpace.OnLand();
+                }
+                if (playerposition[playerturn].y == -14 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A) || playerposition[playerturn].y == 0 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A))
+                {
+                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x - movement, playerposition[playerturn].y);
+                    transform.position = (Vector2)playerposition[playerturn];
+                    boardSpace.OnLand();
+
+                }
+                if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W))
+                {
+                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y + movement);
+                    transform.position = (Vector2)playerposition[playerturn];
+                    boardSpace.OnLand();
+                }
+            
         }
     }
     private void switchplayer()
     {
-        if (Players[playerturn] == 1)
+        
+        if (Players[playerturn] == 0)
         {
             
             Debug.Log("player1");
             if (Input.GetKeyUp(KeyCode.Space))
-            { 
+            {
+                movement = dicerandom.rolldice();
                 state = "moving";
                 Debug.Log(state);
                 //Moving();
@@ -157,31 +184,35 @@ public class MovementNew : MonoBehaviour
             }
 
         }
-        if (Players[playerturn] == 2)
+        if (Players[playerturn] == 1)
         {
             Debug.Log("player2");
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                movement = dicerandom.rolldice();
                 state = "moving";
                 //Moving();
                 audioManager.PlaySFX(audioManager.Astronout);
             }
         }
-        if (Players[playerturn] == 3)
+        if (Players[playerturn] == 2)
         {
             Debug.Log("player3");
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                movement = dicerandom.rolldice();
                 state = "moving";
                // Moving();
                 audioManager.PlaySFX(audioManager.Cat);
             }
         }
-        if (Players[playerturn] == 4)
+        if (Players[playerturn] == 3)
         {
-            Debug.Log("player3");
+
+            Debug.Log("player4");
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                movement = dicerandom.rolldice();
                 state = "moving";
                 //Moving();
                 audioManager.PlaySFX(audioManager.Pirate);
