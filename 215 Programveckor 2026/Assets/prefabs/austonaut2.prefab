@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5593768913003249458}
   - component: {fileID: 6327793864231691513}
-  - component: {fileID: 1508839375908324136}
-  - component: {fileID: 4689655636985097923}
+  - component: {fileID: 5539817266809795789}
   m_Layer: 0
   m_Name: austonaut2
   m_TagString: Untagged
@@ -92,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1508839375908324136
+--- !u!114 &5539817266809795789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,20 +100,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2562682124702491438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdb30d091882e6488c59978b3632f34, type: 3}
+  m_Script: {fileID: 11500000, guid: a66f39275ef3e7a4981b313849018cf6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StartTurn
---- !u!114 &4689655636985097923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562682124702491438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1af0543f7d98f040978afa0ff653989, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Turnsystem
+  m_EditorClassIdentifier: Assembly-CSharp::MovementNew
+  Players: 
+  state: rolling
+  playerposition: {x: 0, y: 0}
   TilePosition: []
-  playerturns: 

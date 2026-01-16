@@ -4,34 +4,46 @@ using UnityEngine;
 
 public class StartTurn : MonoBehaviour
 {
-    private charecterSelect charecterselect;
+
     private Turnsystem turnsystem;
     private Audiomanager audioManager;
     private BoardSpace boardSpace;
-    private int playerturn;
-    private charecterSelect CharecterSelect;
+    private int playerturn= 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public List<int> Players = new List<int>();
 
 
-
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
+        turnsystem = GetComponent<Turnsystem>();
+        boardSpace = FindFirstObjectByType<BoardSpace>();
+
     }
     void Start()
     {
-        Players.Add(1);
-        Players.Add(2);
-        Players.Add(3);
-        Players.Add(4);
+        int player1= PlayerPrefs.GetInt("player1");
+        int player2 = PlayerPrefs.GetInt("player2");
+        int player3 = PlayerPrefs.GetInt("player3");
+        int player4 = PlayerPrefs.GetInt("player4");
 
+        Players.Add(player1);
+        Players.Add(player2);
+        Players.Add(player3);
+        Players.Add(player4);
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Players[playerturn] == 1)
         {
-            while (!Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 turnsystem.Turn();
                 audioManager.PlaySFX(audioManager.Alien);
@@ -40,7 +52,7 @@ public class StartTurn : MonoBehaviour
         }
         if (Players[playerturn] == 2)
         {
-            while (!Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 turnsystem.Turn();
                 audioManager.PlaySFX(audioManager.Astronout);
@@ -48,7 +60,7 @@ public class StartTurn : MonoBehaviour
         }
         if (Players[playerturn] == 3)
         {
-            while (!Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 turnsystem.Turn();
                 audioManager.PlaySFX(audioManager.Cat);
@@ -56,17 +68,12 @@ public class StartTurn : MonoBehaviour
         }
         if (Players[playerturn] == 4)
         {
-            while (!Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 turnsystem.Turn();
                 audioManager.PlaySFX(audioManager.Pirate);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (boardSpace.turnover == true) 
         {
             Players[playerturn] += 1;

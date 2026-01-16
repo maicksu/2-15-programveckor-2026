@@ -5,7 +5,10 @@ using UnityEngine;
 public class playeritem : MonoBehaviour
 {
     private Items items;
-
+    private void Awake()
+    {
+        items = GetComponent<Items>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Items> player1items = new List<Items>();
     public List<Items> player2items = new List<Items>();

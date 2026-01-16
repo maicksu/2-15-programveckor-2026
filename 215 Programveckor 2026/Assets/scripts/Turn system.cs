@@ -13,10 +13,14 @@ public class Turnsystem : MonoBehaviour
 
 
     private BoardSpace boardSpace;
-    private charecterSelect charecterselect;
     private Dicerandom dicerandom;
-    private Player player;
 
+    private void Awake()
+    {
+        dicerandom = FindFirstObjectByType<Dicerandom>();
+        boardSpace = FindFirstObjectByType<BoardSpace>();
+
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,93 +85,120 @@ public class Turnsystem : MonoBehaviour
         TilePosition.Add(new Vector2Int(0, -2));
         TilePosition.Add(new Vector2Int(0, -1)); //[55] inte hörn btw det är [0] som är det
 
-        playerposition = TilePosition[0];
+        
+        transform.position = (Vector2)TilePosition[0];
+
     }
-   
+
     public void Turn()
     {
+        bool rolling = true;
+        bool choising = false;
         if (Input.GetKeyUp(KeyCode.Space))
         {
-
+            rolling = false;
+            choising = true;
+            Debug.Log("Turn");
             int movement = dicerandom.rolldice();
+            Debug.Log(movement);
 
             Vector2Int CornerNW = TilePosition[0];
             Vector2Int CornerNE = TilePosition[14];
             Vector2Int CornerSE = TilePosition[28];
             Vector2Int CornerSW = TilePosition[42];
+            transform.position = (Vector2)CornerNW; //remove
 
-            Vector2Int NorthEdge = TilePosition[1-13];
-            Vector2Int EastEdge = TilePosition[14-27];
-            Vector2Int SouthEdge = TilePosition[29-41];
-            Vector2Int WestEdge = TilePosition[43-55];
-
-            if(CornerNW == playerposition)
+            
+            if (CornerNW == playerposition)
             {
-                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.S))
+                if (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.S))
                 {
-                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
+                    if (choising == true)
+                    {
+                        Debug.Log("I NW corner");
+                        if (Input.GetKeyDown(KeyCode.D))
+                        {
+                            playerposition.x += movement;
+                            transform.position = (Vector2)playerposition;
+                            choising = false;
+                        }
+                        if (Input.GetKeyDown(KeyCode.S))
+                        {
+                            playerposition.y -= movement;
+                            transform.position = (Vector2)playerposition;
+                            choising = false;
+                        }
+
+                    }
                 }
             }
             if (CornerNE == playerposition)
             {
-                while (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.S))
+                if (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.S))
                 {
-                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
-                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
+                    if (Input.GetKeyDown(KeyCode.A)) 
+                    { 
+                        playerposition.x -= movement; 
+                        transform.position = (Vector2)playerposition; 
+                    }
+                    if (Input.GetKeyDown(KeyCode.S)) 
+                    {
+                        playerposition.y -= movement;
+                        transform.position = (Vector2)playerposition;
+                    }
                 }
             }
             if (CornerSE == playerposition)
             {
-                while (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.W))
+                if (!Input.GetKeyDown(KeyCode.A) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
-                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
-                }
+                    if (Input.GetKeyDown(KeyCode.A)) { playerposition.x -= movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.W)) { playerposition.y += movement; transform.position = (Vector2)playerposition; }
+                    }
             }
             if (CornerSW == playerposition)
             {
-                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.W))
+                if (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.D)) { playerposition.x += movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.W)) { playerposition.y += movement; transform.position = (Vector2)playerposition; }
                 }
             }
 
-            if(NorthEdge == playerposition)
+            if(playerposition.y == 0)
             {
-                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
+                if (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
                 {
-                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.D)) { playerposition.x += movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.A)) { playerposition.x -= movement; transform.position = (Vector2)playerposition; }
                 }
 
             }
-            if (EastEdge == playerposition)
+            if (playerposition.x == 14)
             {
-                while (!Input.GetKeyDown(KeyCode.S) || !Input.GetKeyDown(KeyCode.W))
+                if (!Input.GetKeyDown(KeyCode.S) ||! Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
-                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.S)) { playerposition.y -= movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.W)) { playerposition.y += movement; transform.position = (Vector2)playerposition; }
                 }
             }
-            if (SouthEdge == playerposition)
+            if (playerposition.y == -14)
             {
-                while (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
+                if (!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A))
                 {
-                    if (Input.GetKeyDown(KeyCode.D)) playerposition.x += movement;
-                    if (Input.GetKeyDown(KeyCode.A)) playerposition.x -= movement;
+                    if (Input.GetKeyDown(KeyCode.D)) { playerposition.x += movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.A)) { playerposition.x -= movement; transform.position = (Vector2)playerposition; }
                 }
             }
-            if (WestEdge == playerposition)
+            if (playerposition.x == 0)
             {
-                while (!Input.GetKeyDown(KeyCode.S) || !Input.GetKeyDown(KeyCode.W))
+                if (!Input.GetKeyDown(KeyCode.S) || !Input.GetKeyDown(KeyCode.W))
                 {
-                    if (Input.GetKeyDown(KeyCode.S)) playerposition.y -= movement;
-                    if (Input.GetKeyDown(KeyCode.W)) playerposition.y += movement;
+                    if (Input.GetKeyDown(KeyCode.S)) { playerposition.y -= movement; transform.position = (Vector2)playerposition; }
+                    if (Input.GetKeyDown(KeyCode.W)) { playerposition.y += movement; transform.position = (Vector2)playerposition; }
                 }
             }
-            
+            Debug.Log("out of NW corner");
             currentPosition += movement;
             playerposition = TilePosition[currentPosition];
             

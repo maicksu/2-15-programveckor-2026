@@ -8,7 +8,7 @@ public class Randomreward : MonoBehaviour
     private List<Items> reward = new List<Items>();
     private playeritem playeritem;
     private charecterSelect charecterselect;
-    public Randomreward()
+    private void Awake()
     {
         reward.Add(new Items("Wings", 1));
         reward.Add(new Items("GasTank", 1));
@@ -17,6 +17,8 @@ public class Randomreward : MonoBehaviour
         reward.Add(new Items("Thruster", 1));
 
         Shuffle(reward);
+        playeritem = GetComponent<playeritem>();
+        charecterselect = GetComponent<charecterSelect>();
     }
     public void Shuffle(List<Items> list)
     {
