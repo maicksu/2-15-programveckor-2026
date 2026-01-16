@@ -18,11 +18,13 @@ public class BoardSpace : MonoBehaviour
     private Buffs buffs;
     public int coins = 0;
     public bool turnover = false;
+    private MovementNew movementNew;
 
     private void Awake()
     {
         randomreward = GetComponent<Randomreward>();
         randompunishment = GetComponent<Randompunishment>();
+        movementNew = FindFirstObjectByType<MovementNew>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
     }
     public void OnLand()
@@ -54,5 +56,6 @@ public class BoardSpace : MonoBehaviour
             turnover = true;
 
         }
+        movementNew.state = "rolling";
     }
 }
