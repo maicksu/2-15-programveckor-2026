@@ -5,12 +5,12 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class MovementNew : MonoBehaviour
 {
     private Dicerandom dicerandom;
-    private Turnsystem turnsystem;
     private Audiomanager audioManager;
     private BoardSpace boardSpace;
     public List<int> Players = new List<int>();
+    public List<GameObject> avplayers = new List<GameObject>();
     public string state = "rolling";
-    private int playerturn = 0;
+    public int playerturn = 0;
     public List<Vector2Int> playerposition = new List<Vector2Int>();
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
     private int currentPosition = 0;
@@ -19,7 +19,6 @@ public class MovementNew : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
-        turnsystem = GetComponent<Turnsystem>();
         boardSpace = FindFirstObjectByType<BoardSpace>();
         dicerandom = FindFirstObjectByType<Dicerandom>();
     }
@@ -39,7 +38,7 @@ public class MovementNew : MonoBehaviour
          Players.Add(player3);
          Players.Add(player4);
 
-
+         
 
         playerposition.Add(new Vector2Int(0, 0));
         playerposition.Add(new Vector2Int(0, 0));
@@ -110,7 +109,7 @@ public class MovementNew : MonoBehaviour
         TilePosition.Add(new Vector2Int(0, -2));
         TilePosition.Add(new Vector2Int(0, -1)); //[55] inte hörn btw det är [0] som är det
 
-         transform.position = (Vector2)TilePosition[0];
+         
     }
 
     private List<Vector2Int> GetPlayerposition()
@@ -142,26 +141,26 @@ public class MovementNew : MonoBehaviour
                 Debug.Log("fucking hell");
 
                 playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x + movement, playerposition[playerturn].y);
-                    transform.position = (Vector2)playerposition[playerturn];
+                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
                     boardSpace.OnLand();
                 }
                 if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S))
                 {
                     playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y - movement);
-                    transform.position = (Vector2)playerposition[playerturn];
+                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
                     boardSpace.OnLand();
                 }
                 if (playerposition[playerturn].y == -14 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A) || playerposition[playerturn].y == 0 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A))
                 {
                     playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x - movement, playerposition[playerturn].y);
-                    transform.position = (Vector2)playerposition[playerturn];
+                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
                     boardSpace.OnLand();
 
                 }
                 if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W))
                 {
                     playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y + movement);
-                    transform.position = (Vector2)playerposition[playerturn];
+                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
                     boardSpace.OnLand();
                 }
             
@@ -170,7 +169,7 @@ public class MovementNew : MonoBehaviour
     private void switchplayer()
     {
         
-        if (Players[playerturn] == 0)
+        if (Players[playerturn] == 0)   
         {
             
             Debug.Log("player1");
@@ -221,7 +220,7 @@ public class MovementNew : MonoBehaviour
         if (boardSpace.turnover == true)
         {
             playerturn++;
-            if (Players[playerturn] == 5|| Players[playerturn] == 0)
+            if (Players[playerturn] >= 4)
             {
                 Players[playerturn] = 1;
             }

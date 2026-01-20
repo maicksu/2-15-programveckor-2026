@@ -34,28 +34,29 @@ public class BoardSpace : MonoBehaviour
             randomreward.Drawreward();
             audioManager.PlaySFX(audioManager.Reward);
             turnover = true;
+            movementNew.state = "rolling";
         }
         else if (type == SpaceType.Punishment)
         {
             randompunishment.drawpunishment();
             audioManager.PlaySFX(audioManager.Losing);
             turnover = true;
-
+            movementNew.state = "rolling";
         }
         else if (type == SpaceType.Coins)
         {
             coins += 1;
             audioManager.PlaySFX(audioManager.Coin);
             turnover = true;
-
+            movementNew.state = "rolling";
         }
         else if (type == SpaceType.Buff)
         {
             buffs.Drawbuff();
             audioManager.PlaySFX(audioManager.Buff);
             turnover = true;
-
+            movementNew.state = "rolling";
         }
-        movementNew.state = "rolling";
+        
     }
 }
