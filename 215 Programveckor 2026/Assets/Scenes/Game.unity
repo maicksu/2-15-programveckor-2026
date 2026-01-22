@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 369746888}
   m_Layer: 0
   m_Name: NorthTiles(C)
-  m_TagString: Untagged
+  m_TagString: coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1056,7 +1056,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5245751577525383065, guid: f843ce3e3a1226e4193a8a6fcc064f5a, type: 3}
+  m_Sprite: {fileID: -2477817586812891998, guid: f3d630dde2b959247b16b261e47e33a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3835,7 +3835,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 971692611141567980, guid: 7925ae7fa832c5d4fb914ca77cb59045, type: 3}
+  m_Sprite: {fileID: -8237886885182815109, guid: 5b8e013b456729143ba7bc278ab4a5d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3925,7 +3925,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5245751577525383065, guid: f843ce3e3a1226e4193a8a6fcc064f5a, type: 3}
+  m_Sprite: {fileID: -2477817586812891998, guid: f3d630dde2b959247b16b261e47e33a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4978,7 +4978,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 971692611141567980, guid: 7925ae7fa832c5d4fb914ca77cb59045, type: 3}
+  m_Sprite: {fileID: -8237886885182815109, guid: 5b8e013b456729143ba7bc278ab4a5d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
