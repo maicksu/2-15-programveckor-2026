@@ -11,7 +11,7 @@ public class MovementNew : MonoBehaviour
     public List<GameObject> avplayers = new List<GameObject>();
     public string state = "rolling";
     public int playerturn = 0;
-    public List<Vector2Int> playerposition = new List<Vector2Int>();
+    public List<int> playerposition = new List<int>();
     public List<Vector2Int> TilePosition = new List<Vector2Int>();
     private int currentPosition = 0;
     private int movement;
@@ -40,14 +40,14 @@ public class MovementNew : MonoBehaviour
 
          
 
-        playerposition.Add(new Vector2Int(0, 0));
-        playerposition.Add(new Vector2Int(0, 0));
-        playerposition.Add(new Vector2Int(0, 0));
-        playerposition.Add(new Vector2Int(0, 0));
+        playerposition.Add(0);
+        playerposition.Add(0);
+        playerposition.Add(0);
+        playerposition.Add(0);
 
         print("Player turn: " + playerturn);
-        print("Player pos x : " + playerposition[playerturn].x);
-        print("Player pos y : " + playerposition[playerturn].y);
+        print("Player pos x : " + TilePosition[playerposition[playerturn]].x);
+        print("Player pos y : " + TilePosition[playerposition[playerturn]].y);
 
         TilePosition.Add(new Vector2Int(0, 0)); //[0] också vidare
         TilePosition.Add(new Vector2Int(1, 0)); //[1]
@@ -112,10 +112,7 @@ public class MovementNew : MonoBehaviour
          
     }
 
-    private List<Vector2Int> GetPlayerposition()
-    {
-        return playerposition;
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -131,38 +128,38 @@ public class MovementNew : MonoBehaviour
                 
                 Debug.Log("in i movemet");
             print("Player turn: " +playerturn);
-            print("Player pos x : " + playerposition[playerturn].x);
-            print("Player pos y : " + playerposition[playerturn].y);
+            print("Player pos x : " + TilePosition[playerposition[playerturn]].x);
+            print("Player pos y : " + TilePosition[playerposition[playerturn]].y);
 
 
 
-            if ((playerposition[playerturn].y == -14 && playerposition[playerturn].x != 14 && Input.GetKeyDown(KeyCode.D)) || (playerposition[playerturn].y == 0 && playerposition[playerturn].x != 14 && Input.GetKeyDown(KeyCode.D)))
+                if ((TilePosition[playerposition[playerturn]].y == -14 && TilePosition[playerposition[playerturn]].x != 14 && Input.GetKeyDown(KeyCode.D)) || TilePosition[playerposition[playerturn]].y == 0 && TilePosition[playerposition[playerturn]].y != 14 && Input.GetKeyDown(KeyCode.D))
                 {
                 Debug.Log("fucking hell");
 
-                playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x + movement, playerposition[playerturn].y);
-                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
+                playerposition[playerturn] += movement;
+                avplayers[playerturn].transform.position = (Vector2)TilePosition[playerposition[playerturn]];
                     boardSpace.OnLand();
                 }
-                if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != -14 && Input.GetKeyDown(KeyCode.S))
+                if (TilePosition[playerposition[playerturn]].x == 0 && TilePosition[playerposition[playerturn]].y != -14 && Input.GetKeyDown(KeyCode.S) || TilePosition[playerposition[playerturn]].x == 14 && TilePosition[playerposition[playerturn]].y != -14 && Input.GetKeyDown(KeyCode.S))
                 {
-                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y - movement);
-                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
-                    boardSpace.OnLand();
-                }
-                if (playerposition[playerturn].y == -14 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A) || playerposition[playerturn].y == 0 && playerposition[playerturn].x != 0 && Input.GetKeyDown(KeyCode.A))
+                playerposition[playerturn] += movement;
+                avplayers[playerturn].transform.position = (Vector2)TilePosition[playerposition[playerturn]];
+                boardSpace.OnLand();
+            }
+                if (TilePosition[playerposition[playerturn]].y == -14 && TilePosition[playerposition[playerturn]].x != 0 && Input.GetKeyDown(KeyCode.A) || TilePosition[playerposition[playerturn]].y == 0 && TilePosition[playerposition[playerturn]].x != 0 && Input.GetKeyDown(KeyCode.A))
                 {
-                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x - movement, playerposition[playerturn].y);
-                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
-                    boardSpace.OnLand();
+                playerposition[playerturn] += movement;
+                avplayers[playerturn].transform.position = (Vector2)TilePosition[playerposition[playerturn]];
+                boardSpace.OnLand();
 
-                }
-                if (playerposition[playerturn].x == 0 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W) || playerposition[playerturn].x == 14 && playerposition[playerturn].y != 0 && Input.GetKeyDown(KeyCode.W))
+            }
+                if (TilePosition[playerposition[playerturn]].x == 0 && TilePosition[playerposition[playerturn]].y != 0 && Input.GetKeyDown(KeyCode.W) || TilePosition[playerposition[playerturn]].x == 14 && TilePosition[playerposition[playerturn]].y != 0 && Input.GetKeyDown(KeyCode.W))
                 {
-                    playerposition[playerturn] = new Vector2Int(playerposition[playerturn].x, playerposition[playerturn].y + movement);
-                avplayers[playerturn].transform.position = (Vector2)playerposition[playerturn];
-                    boardSpace.OnLand();
-                }
+                playerposition[playerturn] += movement;
+                avplayers[playerturn].transform.position = (Vector2)TilePosition[playerposition[playerturn]];
+                boardSpace.OnLand();
+            }
             
         }
     }
@@ -220,9 +217,10 @@ public class MovementNew : MonoBehaviour
         if (boardSpace.turnover == true)
         {
             playerturn++;
-            if (Players[playerturn] >= 4)
+            boardSpace.turnover = false;
+            if (playerturn >= 4)
             {
-                Players[playerturn] = 1;
+                playerturn = 0;
             }
         }
     }
